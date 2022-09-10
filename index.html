@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body class="main__body">
@@ -53,7 +55,7 @@
             <div class="hero__heading">
                 <h2 class="hero__title title">Start and Build Your Crypto Portfolio Here</h2>
                 <p class="hero__description subtitle">
-                    Only at CryptoCap, you can build a good portfolio and learn 
+                    Only at CryptoCap, you can build a good portfolio and learn
                     best practices about cryptocurrency.
                 </p>
                 <button class="hero__button btn-primary">Get Started</button>
@@ -135,20 +137,23 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
 </section>
+
         <section class="section__features">
     <div class="container">
         <div class="features">
+            <div class="features__heading" style="overflow: hidden">
+                <h2 class="features__title title">CryptoCap Amazing Features</h2>
+                <p class="features__description subtitle">
+                    Explore sensational features to prepare your best investment in cryptocurrency
+                </p>
+            </div>
 
-            <h2 class="features__title title">CryptoCap Amazing Features</h2>
-            <p class="features__description subtitle">
-                Explore sensational features to prepare your best investment in cryptocurrency
-            </p>
 
             <!-- Slider main container -->
             <div class="swiper-features">
@@ -225,17 +230,20 @@
                         We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.
                     </p>
                 </div>
-                <button class="learn__btn btn-primary">Learn & Explore Now</button>                
+                <button class="learn__btn btn-primary">Learn & Explore Now</button>
             </div>
         </div>
     </div>
 </section>
+
         <section class="section__update">
     <div class="container">
 
-        <h2 class="update__title title">Market Update</h2>
-        <p class="update__text text">Cryptocurrency Categories</p>
-    
+        <div style="overflow: hidden">
+            <h2 class="update__title title">Market Update</h2>
+            <p class="update__text text">Cryptocurrency Categories</p>
+        </div>
+
         <!-- Tabs -->
         <div class="tabs">
             <div class="tabs__header">
@@ -292,7 +300,7 @@
                                         <span class="divider">ETH</span>
                                     </div>
                                 </td>
-                                <td>$4,267.90</td>
+                                <td id="test">$4,267.90</td>
                                 <td>2.22%</td>
                                 <td>
                                     <img src="./img/table_2.png" alt="coin statc">
@@ -1111,6 +1119,7 @@
 
     </div>
 </section>
+
         <section class="section__getstarted">
     <div class="container">
         <div class="getstarted">
@@ -1156,10 +1165,13 @@
 </section>
         <section class="section__about">
     <div class="container">
-        <h2 class="about__title title">Learn About Cryptocurrency</h2>
-        <p class="about__text subtitle">
-            Learn all about cryptocurrency to start investing
-        </p>
+        <div style="overflow: hidden">
+            <h2 class="about__title title">Learn About Cryptocurrency</h2>
+            <p class="about__text subtitle">
+                Learn all about cryptocurrency to start investing
+            </p>
+        </div>
+
         <div class="about__grid">
             <div class="grid__item big-item">
                 <div class="item__content--big">
@@ -1173,7 +1185,7 @@
                     <span class="item__content--tag">CRYPTO BASIC</span>
                     <h2 class="item__content--title">All about Investing in NFTs and related risks</h2>
                     <p class="item__content--text">
-                        Cryptocurrencies are basically digital assets. It is secured by cryptography.. 
+                        Cryptocurrencies are basically digital assets. It is secured by cryptography..
                     </p>
                 </div>
             </div>
@@ -1193,7 +1205,7 @@
                     <span class="item__content--tag">TIPS & TRICKS</span>
                     <h2 class="item__content--title">How to setup crypto wallet in your account</h2>
                     <p class="item__content--text">
-                        A crypto wallet is a place where you can securely keep your crypto.. 
+                        A crypto wallet is a place where you can securely keep your crypto..
                     </p>
                 </div>
             </div>
@@ -1203,7 +1215,7 @@
                     <span class="item__content--tag">CRYPTO BASIC</span>
                     <h2 class="item__content--title">The fact about bitcoin must you know</h2>
                     <p class="item__content--text">
-                        Bitcoin is the world's first widely adopted cryptocurrency, it allows for secure..  
+                        Bitcoin is the world's first widely adopted cryptocurrency, it allows for secure..
                     </p>
                 </div>
             </div>
@@ -1231,6 +1243,7 @@
         <a href="#" class="link-primary">See All Articles</a>
     </div>
 </section>
+
     </main>
 
     <!-- Footer -->
@@ -1330,6 +1343,6 @@
 
 </body>
 
-<script src="./js/scripts.min.js"></script>
+<script defer src="./js/scripts.min.js"></script>
 
 </html>

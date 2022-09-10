@@ -49,12 +49,12 @@ function burgerMenu() {
     })
   }
   burgerMenu()
-  
-  
+
+
   // Вызываем эту функцию, если нам нужно зафиксировать меню при скролле.
   function fixedNav() {
     const nav = document.querySelector('nav')
-  
+
     // тут указываем в пикселях, сколько нужно проскроллить что бы наше меню стало фиксированным
     const breakpoint = 1
     if (window.scrollY >= breakpoint) {
@@ -64,7 +64,7 @@ function burgerMenu() {
     }
   }
   window.addEventListener('scroll', fixedNav)
-  
+
 // select
 const getTemplate = (data = [], placeholder, selectedId) => {
     let text = placeholder ?? 'placeholder не указан'
@@ -184,7 +184,7 @@ const select = new Select('#select', {
     onSelect(item) {
         const input = document.querySelector('.hidden__input')
         input.value = item.value
-    } 
+    }
 })
 
 // slder
@@ -214,7 +214,7 @@ function swiperMode() {
         }
     }
 
-   
+
     // Disable (for desktop)
     else if(desktop.matches && typeof swiper == "object") {
         swiper.destroy();
@@ -243,7 +243,7 @@ function swiperModeFeatures() {
         }
     }
 
-   
+
     // Disable (for desktop)
     else if(desktop.matches && typeof swiperFeatures == "object") {
         swiperFeatures.destroy();
@@ -284,7 +284,7 @@ function tabs(headerSelector, tabSelector, contentSelector, activeClass, display
     showTabContent()
     header.addEventListener('click', e => {
         const target = e.target
-        if (target.classList.contains(tabSelector.replace(/\./, '')) || 
+        if (target.classList.contains(tabSelector.replace(/\./, '')) ||
         target.parentNode.classList.contains(tabSelector.replace(/\./, ''))) {
             tab.forEach((item, i) => {
                 if ( target == item || target.parentNode == item ) {
@@ -302,7 +302,7 @@ function tabs(headerSelector, tabSelector, contentSelector, activeClass, display
 // ЧЕТВЕРТЫЙ аргумент - класс активности, который будет добавлятся для таба, который сейчас активен.
 tabs( '.tabs__header' ,'.tabs__header-item', '.tabs__content-item', 'active')
 
-// form border 
+// form border
 
 const formBorder = () => {
     const form = document.querySelector('.search__form')
@@ -322,6 +322,60 @@ const formBorder = () => {
 }
 
 formBorder()
+
+
+AOS.init();
+
+const options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.0,
+}
+
+
+const callback = async function(entries, observer) {
+
+  for (const entry of entries) {
+
+    if (entry.isIntersecting) {
+      await delay(300)
+      entry.target.classList.add('animation');
+    } else {
+      entry.target.classList.remove('animation')
+    }
+  }
+};
+
+const delay = ms => new Promise(res => setTimeout(res, ms))
+
+const observer = new IntersectionObserver(callback, options);
+
+const animationItems = [
+  document.querySelector('.hero__title'),
+  document.querySelector('.hero__description'),
+  document.querySelector('.hero__button'),
+  document.querySelector('.market__title'),
+    ...document.querySelectorAll('.dashboard__item'),
+  document.querySelector('.features__title'),
+  document.querySelector('.features__description'),
+    ...document.querySelectorAll('.features__item'),
+  document.querySelector('.learn'),
+  document.querySelector('.update__title'),
+  document.querySelector('.update__text'),
+  document.querySelector('.tabs'),
+  document.querySelector('.getstarted__left--title'),
+  document.querySelector('.getstarted__left--text'),
+  document.querySelector('.about__title'),
+  document.querySelector('.about__text'),
+    ...document.querySelectorAll('.getstarted__right--item'),
+]
+
+animationItems.forEach(item => {
+  observer.observe(item)
+})
+
+
+
 
 
 
