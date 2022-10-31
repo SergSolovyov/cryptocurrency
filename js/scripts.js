@@ -23,6 +23,7 @@ function burgerMenu() {
     const body = document.querySelector('body')
     const login = document.querySelector('.navbar__login');
     const nav = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('.menu__item-link');
 
     burger.addEventListener('click', () => {
       if (!menu.classList.contains('active')) {
@@ -39,6 +40,16 @@ function burgerMenu() {
         nav.classList.remove('active')
       }
     })
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (menu.classList.contains('active')) {
+                burger.click()
+            }
+        })
+    })
+
+
     // Вот тут мы ставим брейкпоинт навбара
     window.addEventListener('resize', () => {
       if (window.innerWidth > 991.98) {
@@ -326,56 +337,58 @@ formBorder()
 
 AOS.init();
 
-const options = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.0,
-}
-
-
-const callback = async function(entries, observer) {
-
-  for (const entry of entries) {
-
-    if (entry.isIntersecting) {
-      await delay(300)
-      entry.target.classList.add('animation');
-    } else {
-      entry.target.classList.remove('animation')
-    }
-  }
-};
-
-const delay = ms => new Promise(res => setTimeout(res, ms))
-
-const observer = new IntersectionObserver(callback, options);
-
-const animationItems = [
-  document.querySelector('.hero__title'),
-  document.querySelector('.hero__description'),
-  document.querySelector('.hero__button'),
-  document.querySelector('.market__title'),
-    ...document.querySelectorAll('.dashboard__item'),
-  document.querySelector('.features__title'),
-  document.querySelector('.features__description'),
-    ...document.querySelectorAll('.features__item'),
-  document.querySelector('.learn'),
-  document.querySelector('.update__title'),
-  document.querySelector('.update__text'),
-  document.querySelector('.tabs'),
-  document.querySelector('.getstarted__left--title'),
-  document.querySelector('.getstarted__left--text'),
-  document.querySelector('.about__title'),
-  document.querySelector('.about__text'),
-    ...document.querySelectorAll('.getstarted__right--item'),
-]
-
-animationItems.forEach(item => {
-  observer.observe(item)
-})
-
-
-
+// const options = {
+//   root: null,
+//   rootMargin: '0px',
+//   threshold: 0.0,
+// }
+//
+//
+// const callback = async function(entries, observer) {
+//
+//   for (const entry of entries) {
+//
+//     if (entry.isIntersecting) {
+//       await delay(300)
+//       entry.target.classList.add('animation');
+//     } else {
+//       entry.target.classList.remove('animation')
+//     }
+//   }
+// };
+//
+// const delay = ms => new Promise(res => setTimeout(res, ms))
+//
+// const observer = new IntersectionObserver(callback, options);
+//
+// const animationItems = [
+//   document.querySelector('.hero__title'),
+//   document.querySelector('.hero__description'),
+//   document.querySelector('.hero__button'),
+//   document.querySelector('.market__title'),
+//     ...document.querySelectorAll('.dashboard__item'),
+//   document.querySelector('.features__title'),
+//   document.querySelector('.features__description'),
+//     ...document.querySelectorAll('.features__item'),
+//   document.querySelector('.learn'),
+//   document.querySelector('.update__title'),
+//   document.querySelector('.update__text'),
+//   document.querySelector('.tabs'),
+//   document.querySelector('.getstarted__left--title'),
+//   document.querySelector('.getstarted__left--text'),
+//   document.querySelector('.about__title'),
+//   document.querySelector('.about__text'),
+//     ...document.querySelectorAll('.getstarted__right--item'),
+// ]
+//
+// // animationItems.forEach(item => item.classList.add('animation'))
+// //
+// animationItems.forEach(item => {
+//   observer.observe(item)
+// })
+//
+//
+//
 
 
 
